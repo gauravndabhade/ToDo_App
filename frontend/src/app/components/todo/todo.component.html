@@ -1,0 +1,73 @@
+<div class="todos">
+  <form (submit)="addTodo($event)">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <input
+            [(ngModel)]="newTodo.title"
+            class="textfield form-control"
+            name="title"
+            placeholder="Title"
+          />
+        </div>
+
+        <div class="row">
+          <textarea
+            [(ngModel)]="newTodo.description"
+            name="description"
+            class="textarea form-control"
+            placeholder="Take a note..."
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="col">
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="newTodo.title === ''"
+        >
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          Add
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <ul>
+    <li *ngFor="let todo of todos; let i = index">
+      <div class="card">
+        <div class="row">
+          <div class="col-1 col-sm-1">
+            <input
+              type="checkbox"
+              class="checkbox"
+              (change)="updateTodo(todo)"
+              [(ngModel)]="todo.completed"
+            />
+          </div>
+          <div class="col-9 col-sm-9">
+            <div class="row">
+              {{ todo.title }}
+            </div>
+            <div class="row">
+              {{ todo.description }}
+            </div>
+          </div>
+
+          <div class="col-1 col-sm-1">
+            <span (click)="updateTodo(todo)" aria-hidden="true">
+              <i class="fa fa-edit"></i>
+            </span>
+          </div>
+
+          <div class="col-1 col-sm-1">
+            <span (click)="deleteTodo(todo)" aria-hidden="true">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
