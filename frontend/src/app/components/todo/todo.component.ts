@@ -21,13 +21,35 @@ export class TodoItemComponent implements OnInit {
     this.todos = [];
   }
 
+  isUpdating = false;
+  updatingItemIndex = -1;
+
   ngOnInit(): void {
     console.log("called!");
     this.refreshTodoList();
   }
 
-  addTodo(event) {
+  onSubmit(event) {
     event.preventDefault();
+    if (this.isUpdating) {
+      this.updateTodo();
+    } else {
+      this.addTodo();
+    }
+  }
+
+  clear() {
+    this.newTodo = {
+      id: null,
+      title: "",
+      description: "",
+      completed: false
+    };
+    this.isUpdating = false;
+    this.updatingItemIndex = -1;
+  }
+
+  addTodo() {
     this.todoService.add(this.newTodo).subscribe(
       data => {
         this.refreshTodoList();
@@ -36,6 +58,7 @@ export class TodoItemComponent implements OnInit {
         console.log("Error :", error);
       }
     );
+    this.clear();
   }
 
   deleteTodo(todo: TodoItem) {
@@ -50,9 +73,8 @@ export class TodoItemComponent implements OnInit {
     );
   }
 
-  updateTodo(todo: TodoItem) {
-    console.log(todo);
-    this.todoService.update(todo).subscribe(
+  updateTodo() {
+    this.todoService.update(this.newTodo).subscribe(
       data => {
         this.refreshTodoList();
       },
@@ -60,7 +82,14 @@ export class TodoItemComponent implements OnInit {
         console.log("Error :", error);
       }
     );
+    this.clear();
+  }
+
+  editTodo(todo: TodoItem, index: number) {
     this.refreshTodoList();
+    this.updatingItemIndex = index;
+    this.newTodo = todo;
+    this.isUpdating = true;
   }
 
   refreshTodoList() {
