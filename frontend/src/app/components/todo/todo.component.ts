@@ -25,7 +25,6 @@ export class TodoItemComponent implements OnInit {
   updatingItemIndex = -1;
 
   ngOnInit(): void {
-    console.log("called!");
     this.refreshTodoList();
   }
 
@@ -63,7 +62,7 @@ export class TodoItemComponent implements OnInit {
 
   deleteTodo(todo: TodoItem) {
     console.log(todo);
-    this.todoService.delete(todo.id).subscribe(
+    this.todoService.delete(todo.id.toString()).subscribe(
       data => {
         this.refreshTodoList();
       },

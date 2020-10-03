@@ -1,6 +1,11 @@
 export interface TodoItem {
-  id: string;
+  id: number;
   title: string;
   description: string;
   completed: boolean;
+}
+
+export interface ToDoEvent {
+  type: string;
+  content: TodoItem;
 }

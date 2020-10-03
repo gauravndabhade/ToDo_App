@@ -6,6 +6,10 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
 import { TodoItemComponent } from "./components/todo/todo.component";
+import { ToastrModule } from "ngx-toastr";
+import { NotificationService } from "src/services/notification.service";
+import { WebsocketService } from "src/services/websocket.service";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [AppComponent, TodoItemComponent],
@@ -13,9 +17,11 @@ import { TodoItemComponent } from "./components/todo/todo.component";
     BrowserModule,
     FormsModule,
     AngularFontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [WebsocketService, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -16,12 +16,14 @@
         background: transparent;
         border-bottom: 1px solid gray;
         &::placeholder {
+          background: transparent;
           color: gray;
           font-size: 1rem;
         }
 
         &:focus::placeholder {
-          color: white;
+          background: transparent;
+          opacity: 0.3;
         }
       }
 
