@@ -17,12 +17,15 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path, include
 from rest_framework import routers
-from todo import views
+from todo import views as todo_views
+from notify import views as notify_views
+
 
 router = routers.DefaultRouter()
-router.register(r'todos', views.TodoView, 'todo')
+router.register(r'todos', todo_views.TodoView, 'todo')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('notification/', notify_views.Notification.as_view()),
 ]
