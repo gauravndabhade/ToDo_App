@@ -12,27 +12,27 @@ export class TodoService {
 
   public get(): Observable<TodoItem[]> {
     return this.httpClient.get<TodoItem[]>(
-      environment.base_url_todo_server + `/api/todos/`
+      environment.BASE_TODO_SERVER + `/api/todos/`
     );
   }
 
   public add(todoItem: TodoItem): Observable<TodoItem> {
     return this.httpClient.post<TodoItem>(
-      environment.base_url_todo_server + `/api/todos/`,
+      environment.BASE_TODO_SERVER + `/api/todos/`,
       todoItem
     );
   }
 
   public update(todoItem: TodoItem) {
     return this.httpClient.patch(
-      environment.base_url_todo_server + `/api/todos/${todoItem.id}/`,
+      environment.BASE_TODO_SERVER + `/api/todos/${todoItem.id}/`,
       todoItem
     );
   }
 
   public delete(todoID: string) {
     return this.httpClient.delete(
-      environment.base_url_todo_server + `/api/todos/${todoID}/`
+      environment.BASE_TODO_SERVER + `/api/todos/${todoID}/`
     );
   }
 }

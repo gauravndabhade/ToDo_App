@@ -10,6 +10,7 @@ import { ToastrModule } from "ngx-toastr";
 import { NotificationService } from "src/services/notification.service";
 import { WebsocketService } from "src/services/websocket.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { TodoService } from "src/services/todo.service";
 
 @NgModule({
   declarations: [AppComponent, TodoItemComponent],
@@ -21,7 +22,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [WebsocketService, NotificationService],
+  providers: [WebsocketService, NotificationService, TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

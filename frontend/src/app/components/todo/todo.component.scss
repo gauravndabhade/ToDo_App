@@ -18,7 +18,7 @@
         &::placeholder {
           background: transparent;
           color: gray;
-          font-size: 1rem;
+          font-size: 1em;
         }
 
         &:focus::placeholder {
@@ -42,6 +42,14 @@
       flex-direction: column;
       button {
         padding: 0.5rem;
+      }
+    }
+
+    .input-datetime {
+      display: flex;
+      flex-direction: column;
+      .datetime-label {
+        color: gray;
       }
     }
   }
@@ -85,13 +93,24 @@
       }
     }
 
-    .icons {
+    .footer {
       display: flex;
-      flex-direction: row-reverse;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
 
-      span {
-        margin: 0;
-        padding: 0.2rem;
+      .date {
+        font-size: 0.5em;
+      }
+
+      .icons {
+        display: flex;
+        flex-direction: row-reverse;
+
+        span {
+          margin: 0;
+          padding: 0.2rem;
+        }
       }
     }
 

@@ -26,7 +26,7 @@
           Add
         </button>
 
-        <button type="submit" [disabled]="isUpdate" *ngIf="isUpdating">
+        <button type="submit" [disabled]="isUpdating" *ngIf="isUpdating">
           <i class="fa fa-edit" aria-hidden="true"></i>
           Update
         </button>
@@ -36,6 +36,21 @@
           Clear
         </button>
       </div>
+      <!-- 
+      <div class="input-datetime">
+        <label for="datetime-label">Choose a time for schedule:</label>
+
+        <input
+          type="datetime-local"
+          id="meeting-time"
+          name="meeting-time"
+          value="2025-01-01T00:00"
+          min="2020-01-01T00:00"
+          max="2025-12-30T00:00"
+          ng-model="rootFolders"
+          ng-init="rootFolders='Bob'"
+        />
+      </div> -->
     </form>
   </section>
   <section class="section-result">
@@ -51,19 +66,22 @@
             <input
               type="checkbox"
               class="checkbox"
-              (change)="updateTodo(todo)"
+              (change)="updateTodo()"
               [(ngModel)]="todo.completed"
             />
             <h3 class="todo-title">{{ todo.title }}</h3>
           </div>
           <p class="todo-description">{{ todo.description }}</p>
-          <div class="icons">
-            <span (click)="editTodo(todo, i)" aria-hidden="true">
-              <i class="fa fa-edit"></i>
-            </span>
-            <span (click)="deleteTodo(todo)" aria-hidden="true">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            </span>
+          <div class="footer">
+            <div class="date">{{ todo.created_at | date: "MMM dd" }}</div>
+            <div class="icons">
+              <span (click)="editTodo(todo, i)" aria-hidden="true">
+                <i class="fa fa-edit"></i>
+              </span>
+              <span (click)="deleteTodo(todo)" aria-hidden="true">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </span>
+            </div>
           </div>
         </div>
       </div>

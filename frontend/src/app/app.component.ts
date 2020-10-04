@@ -27,7 +27,9 @@ export class AppComponent {
         id: 999,
         title: "Check connection",
         description: "Ping to todo server via websocket",
-        completed: true
+        completed: true,
+        created_at: null,
+        updated_at: null
       }
     });
   }

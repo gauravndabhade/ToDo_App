@@ -16,13 +16,16 @@ export class TodoItemComponent implements OnInit {
       id: null,
       title: "",
       description: "",
-      completed: false
+      completed: false,
+      created_at: null,
+      updated_at: null
     };
     this.todos = [];
   }
 
   isUpdating = false;
   updatingItemIndex = -1;
+  currentDate = new Date();
 
   ngOnInit(): void {
     this.refreshTodoList();
@@ -42,7 +45,9 @@ export class TodoItemComponent implements OnInit {
       id: null,
       title: "",
       description: "",
-      completed: false
+      completed: false,
+      created_at: null,
+      updated_at: null
     };
     this.isUpdating = false;
     this.updatingItemIndex = -1;

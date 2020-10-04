@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  base_url_todo_server: "http://0.0.0.0:8000",
+  BASE_TODO_SERVER: "http://0.0.0.0:8000",
   WEB_SOCKET_SERVER: "ws://0.0.0.0:8000/notifications/"
 };
 
