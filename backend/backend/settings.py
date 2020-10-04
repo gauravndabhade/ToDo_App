@@ -36,9 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'channels',
+    # "django_apscheduler",
     'corsheaders',
     'rest_framework',
-    'todo'
+    'todo',
+    # 'notify.apps.NotifyConfig'
 ]
 
 MIDDLEWARE = [
@@ -136,3 +138,5 @@ CHANNEL_LAYERS = {
         "BACKEND": "channels.layers.InMemoryChannelLayer"
     }
 }
+
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"  # Default
