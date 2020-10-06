@@ -19,6 +19,7 @@
     "strictInjectionParameters": true
   },
   "compilerOptions": {
+    "module": "esnext",
     "skipLibCheck": true
   }
 }
