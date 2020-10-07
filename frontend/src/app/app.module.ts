@@ -22,7 +22,12 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
     BrowserAnimationsModule,
     FontAwesomeModule
   ],
-  providers: [WebsocketService, NotificationService, TodoService],
+  providers: [
+    WebsocketService,
+    NotificationService,
+    TodoService,
+    HttpClientModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
