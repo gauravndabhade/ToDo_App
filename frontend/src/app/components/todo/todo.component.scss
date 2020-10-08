@@ -124,3 +124,13 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .section-input {
+    .form-input {
+      .inputs {
+        width: 50%;
+      }
+    }
+  }
+}

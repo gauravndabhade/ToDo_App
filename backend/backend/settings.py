@@ -36,11 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'channels',
-    # "django_apscheduler",
+    "django_apscheduler",
     'corsheaders',
     'rest_framework',
     'todo',
-    # 'notify.apps.NotifyConfig'
+    'notify.apps.NotifyConfig'
 ]
 
 MIDDLEWARE = [
@@ -118,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Calcutta'
 
 USE_I18N = True
 

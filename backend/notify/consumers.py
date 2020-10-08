@@ -11,6 +11,15 @@ class ToDoEventConsumer(JsonWebsocketConsumer):
             'events', self.channel_name)
 
         self.accept()
+        self.send_json({
+            'type': 'events.connected',
+            'content': {
+                'id': 999,
+                'title': "CONNECTED",
+                'description': "On websocket connected to server",
+                'completed': False
+            }
+        })
 
     def disconnect(self, message):
         print("Closed websocket with code: ", message)
